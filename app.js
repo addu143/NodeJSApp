@@ -15,7 +15,7 @@ mongoose.connect(dbPath);
 
 //middle ware
 app.use((request, response, next) => {
-  console.log("First middleware");
+  response.send(console.log(dbPath));
   //it would send to the next middle ware function
   next();
 });
