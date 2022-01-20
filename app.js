@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const records = require("./models/records");
 const moment = require("moment");
 const httpStatusCodes = require("./models/httpStatusCodes");
-const { json } = require("body-parser");
+const util = require("./util");
 
 const app = express();
 app.use(express.json());
@@ -23,12 +23,12 @@ app.use((request, response, next) => {
 app.post("/api/getRecords", async (req, res, next) => {  
   try {
     //Validations
-    if (Object.keys(req.body).length === 0)
+    if (util.isEmptyApiRequest(req.body))
       return res
         .status(httpStatusCodes.BAD_REQUEST)
         .send(sendResponse(httpStatusCodes.BAD_REQUEST, "Empty Body"));
 
-    if (!moment(req.body.startDate, "YYYY-MM-DD", true).isValid())
+    if (!util.validateDateFormat(req.body.startDate, "YYYY-MM-DD", true))
       return res
         .status(httpStatusCodes.BAD_REQUEST)
         .send(
@@ -38,7 +38,7 @@ app.post("/api/getRecords", async (req, res, next) => {
           )
         );
 
-    if (!moment(req.body.endDate, "YYYY-MM-DD", true).isValid())
+    if (!util.validateDateFormat(req.body.endDate, "YYYY-MM-DD", true))    
       return res
         .status(httpStatusCodes.BAD_REQUEST)
         .send(
@@ -108,6 +108,10 @@ app.post("/api/getRecords", async (req, res, next) => {
       .send(sendResponse(httpStatusCodes.INTERNAL_SERVER, error.message));
   }
 });
+
+const getRecords = () => {
+  
+}
 
 const sendResponse = (statusCode, msg, records) => {
   return {

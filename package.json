@@ -1,0 +1,29 @@
+{
+  "name": "nodejsappgetir",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "jest": "^27.4.7",
+    "moment": "^2.29.1",
+    "mongoose": "^6.1.7",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/addu143/NodeJSAppGetir.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/addu143/NodeJSAppGetir/issues"
+  },
+  "homepage": "https://github.com/addu143/NodeJSAppGetir#readme"
+}
