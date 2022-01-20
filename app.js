@@ -1,4 +1,3 @@
-const dd = require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const records = require("./models/records");
@@ -10,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 //Connecting MongoDB
-const dbPath = process.env.ConnectionString;
+const dbPath = "mongodb+srv://challengeUser:WUMglwNBaydH8Yvu@challenge-xzwqd.mongodb.net/getir-case-study?retryWrites=true";
 mongoose.connect(dbPath);
 
 //middle ware
