@@ -11,3 +11,10 @@ exports.isEmptyApiRequest = (request) => {
     return Object.keys(request).length === 0;
 }
 
+exports.sendResponse = (statusCode, msg, records) => {
+    return {
+      code: statusCode,
+      msg: msg,
+      records: records,
+    };
+  };

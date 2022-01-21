@@ -9,11 +9,14 @@
     "jest": "^27.4.7",
     "moment": "^2.29.1",
     "mongoose": "^6.1.7",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest-date": "^1.1.4"
+  },
   "scripts": {
-    "test": "jest --detectOpenHandles",
+    "test": "jest",
     "start": "node server.js"
   },
   "repository": {

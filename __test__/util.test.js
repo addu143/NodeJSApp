@@ -1,5 +1,5 @@
 const { expect } = require('@jest/globals');
-const util = require('./util');
+const util = require('../util');
 
 test('should date format of JSON request valid', () => {
     const isValid = util.validateDateFormat("2020-12-12");

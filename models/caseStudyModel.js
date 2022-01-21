@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-const recordsSchema = mongoose.Schema({
+const caseStudyModelSchema = mongoose.Schema({
     key: {type: String, required: true},
     value: {type: String, required: true},
     createdAt: {type: Date, required: true}
 });
 
-module.exports = mongoose.model('Records', recordsSchema);
+module.exports = mongoose.model('Records', caseStudyModelSchema);
