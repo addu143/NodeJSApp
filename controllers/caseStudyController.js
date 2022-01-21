@@ -1,15 +1,10 @@
-const mongoose = require("mongoose");
 const caseStudyModel = require("../models/caseStudyModel");
-
 const httpStatusCodes = require("../models/httpStatusCodes");
 const util = require("../util");
 const moment = require("moment");
 
 // Display list of all caseStudies.
 exports.caseStudies_list = async function(req, res) {
-  
-  const dbPath = "mongodb+srv://challengeUser:WUMglwNBaydH8Yvu@challenge-xzwqd.mongodb.net/getir-case-study?retryWrites=true";
-
   try {
         //Validations
         if (util.isEmptyApiRequest(req.body))
@@ -55,8 +50,6 @@ exports.caseStudies_list = async function(req, res) {
         const startDate = moment.utc(req.body.startDate.toLocaleString());
         const endDate = moment.utc(req.body.endDate.toLocaleString());
         
-        await mongoose.connect(dbPath);
-
         caseStudyModel
           .aggregate([
             { $set: { key: "$_id" } },

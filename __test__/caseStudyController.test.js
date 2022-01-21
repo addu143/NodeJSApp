@@ -1,8 +1,8 @@
 const app = require('../app');
 const request = require('supertest');
 const { expect } = require('@jest/globals');
-const mongoose = require("mongoose");
 const jestDate = require("jest-date");
+const disconnectDatabase = require('../database/database');
 
 jest.useRealTimers();
 
@@ -54,5 +54,5 @@ test('createdAt should be between search criteria', async () => {
 }, 50000)
 
 afterAll(async () =>{
-    mongoose.disconnect();
+    disconnectDatabase();
 } );
